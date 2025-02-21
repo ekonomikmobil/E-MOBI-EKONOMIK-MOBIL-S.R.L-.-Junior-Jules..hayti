@@ -2,6 +2,7 @@ package com.company.license;
 
 import com.intellij.openapi.actionSystem.*;
 import com.intellij.openapi.actionSystem.ex.ActionUtil;
+import com.intellij.openapi.actionSystem.impl.SimpleDataContext;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.application.ModalityState;
 import com.intellij.ui.LicensingFacade;
@@ -149,14 +150,18 @@ public class CheckLicense {
   // - message: optional message explaining the reason why the dialog has been shown
   @NotNull
   private static DataContext asDataContext(final String productCode, @Nullable String message) {
-    return dataId -> switch (dataId) {
-        // the same code as registered in plugin.xml, 'product-descriptor' tag
-        case "register.product-descriptor.code" -> productCode;
+    SimpleDataContext.Builder builder = SimpleDataContext.builder();
 
-        // optional message to be shown in the registration dialog that appears
-        case "register.message" -> message;
-        default -> null;
-    };
+    // Add product code to the data context
+    builder.add(DataKey.create("register.product-descriptor.code"), productCode);
+
+    // Add message to the data context (if not null)
+    if (message != null) {
+      builder.add(DataKey.create("register.message"), message);
+    }
+
+    // Build and return the DataContext
+    return builder.build();
   }
 
   private static boolean isEvaluationValid(String expirationTime) {
