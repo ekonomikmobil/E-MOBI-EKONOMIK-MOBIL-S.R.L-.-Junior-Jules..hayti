@@ -1,0 +1,10 @@
+<ivy-module version="2.0">
+  <info organisation="bundledModule" module="intellij.platform.frontend" revision="253.25908.13+25"/>
+  <configurations>
+    <conf name="default" visibility="public"/>
+  </configurations>
+  <publications>
+    <artifact name="/Users/natalia.melnikova/.gradle/caches/8.11/transforms/7c47c24bccbb93f4b21654370dbff5ea/transformed/ideaIC-LATEST-EAP-SNAPSHOT/lib/modules/intellij.platform.frontend.jar" type="jar" conf="default"/>
+  </publications>
+  <dependencies/>
+</ivy-module>

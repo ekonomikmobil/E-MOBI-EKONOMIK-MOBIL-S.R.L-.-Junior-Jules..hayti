@@ -2,12 +2,12 @@ import org.jetbrains.intellij.platform.gradle.IntelliJPlatformType
 
 plugins {
     id("java")
-    id("org.jetbrains.kotlin.jvm") version "2.1.10"
-    id("org.jetbrains.intellij.platform") version "2.1.0"
+    id("org.jetbrains.kotlin.jvm") version "2.3.0-Beta1"
+    id("org.jetbrains.intellij.platform") version "2.9.0"
 }
 
 group = "com.marketplace.plugins"
-version = "2023.2.1"
+version = "2025.2.1"
 
 repositories {
     mavenCentral()
@@ -31,7 +31,7 @@ intellijPlatform {
     pluginConfiguration {
         id = "com.marketplace.makeMeCoffee"
         name = "MakeMeCoffee"
-        version = "2024.1.1"
+        version = "2025.2.1"
         description =
             """
                 Remember all those times when you would say: "Good IDE, the only thing missing is a 'Make Coffee' button."?
@@ -48,12 +48,12 @@ intellijPlatform {
             """.trimIndent()
         productDescriptor {
             code = "PMAKECOFFEE"
-            releaseDate = "20241101"
-            releaseVersion = "20241"
+            releaseDate = "20251101"
+            releaseVersion = "20251"
             optional = true
         }
         ideaVersion {
-            sinceBuild.set("243")
+            sinceBuild.set("252")
         }
         vendor {
             name = "Marketplace"
@@ -64,7 +64,7 @@ intellijPlatform {
 
     pluginVerification {
         ides {
-            ide(IntelliJPlatformType.IntellijIdeaCommunity, "2024.3")
+            ide(IntelliJPlatformType.IntellijIdeaCommunity, "2025.2")
         }
     }
 }

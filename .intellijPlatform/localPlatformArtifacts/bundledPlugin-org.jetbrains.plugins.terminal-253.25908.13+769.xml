@@ -1,0 +1,16 @@
+<ivy-module version="2.0">
+  <info organisation="bundledPlugin" module="org.jetbrains.plugins.terminal" revision="253.25908.13+769"/>
+  <configurations>
+    <conf name="default" visibility="public"/>
+  </configurations>
+  <publications>
+    <artifact name="/Users/natalia.melnikova/.gradle/caches/8.11/transforms/7c47c24bccbb93f4b21654370dbff5ea/transformed/ideaIC-LATEST-EAP-SNAPSHOT/plugins/terminal" type="directory" conf="default"/>
+  </publications>
+  <dependencies>
+    <dependency org="bundledModule" name="intellij.platform.backend" rev="253.25908.13+25"/>
+    <dependency org="bundledModule" name="intellij.platform.kernel.backend" rev="253.25908.13+25"/>
+    <dependency org="bundledModule" name="intellij.platform.frontend" rev="253.25908.13+25"/>
+    <dependency org="bundledModule" name="intellij.platform.inline.completion" rev="253.25908.13+25"/>
+    <dependency org="bundledModule" name="intellij.sh.core" rev="253.25908.13+25"/>
+  </dependencies>
+</ivy-module>

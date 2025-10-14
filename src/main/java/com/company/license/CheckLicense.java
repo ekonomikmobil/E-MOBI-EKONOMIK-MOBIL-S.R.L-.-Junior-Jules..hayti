@@ -2,7 +2,6 @@ package com.company.license;
 
 import com.intellij.openapi.actionSystem.*;
 import com.intellij.openapi.actionSystem.ex.ActionUtil;
-import com.intellij.openapi.actionSystem.impl.SimpleDataContext;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.application.ModalityState;
 import com.intellij.ui.LicensingFacade;
@@ -138,7 +137,7 @@ public class CheckLicense {
     if (registerAction != null) {
       // This API is available starting from IDE version 243.*.
       // For older IDE versions, use: registerAction.actionPerformed(AnActionEvent.createFromDataContext("", new Presentation(), asDataContext(productCode, message)))
-      ActionUtil.performActionDumbAwareWithCallbacks(registerAction, AnActionEvent.createEvent(asDataContext(productCode, message), new Presentation(), "", ActionUiKind.NONE, null));
+      ActionUtil.performAction(registerAction, AnActionEvent.createEvent(asDataContext(productCode, message), new Presentation(), "", ActionUiKind.NONE, null));
     }
   }
 
@@ -148,18 +147,14 @@ public class CheckLicense {
   // - message: optional message explaining the reason why the dialog has been shown
   @NotNull
   private static DataContext asDataContext(final String productCode, @Nullable String message) {
-    SimpleDataContext.Builder builder = SimpleDataContext.builder();
+    return dataId -> switch (dataId) {
+        // the same code as registered in plugin.xml, 'product-descriptor' tag
+        case "register.product-descriptor.code" -> productCode;
 
-    // Add product code to the data context
-    builder.add(DataKey.create("register.product-descriptor.code"), productCode);
-
-    // Add message to the data context (if not null)
-    if (message != null) {
-      builder.add(DataKey.create("register.message"), message);
-    }
-
-    // Build and return the DataContext
-    return builder.build();
+        // optional message to be shown in the registration dialog that appears
+        case "register.message" -> message;
+        default -> null;
+    };
   }
 
   private static boolean isKeyValid(String key) {

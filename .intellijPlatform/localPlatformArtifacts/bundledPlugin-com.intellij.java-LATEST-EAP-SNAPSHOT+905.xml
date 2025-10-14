@@ -1,0 +1,22 @@
+<ivy-module version="2.0">
+  <info organisation="bundledPlugin" module="com.intellij.java" revision="LATEST-EAP-SNAPSHOT+905"/>
+  <configurations>
+    <conf name="default" visibility="public"/>
+  </configurations>
+  <publications>
+    <artifact name="/Users/natalia.melnikova/.gradle/caches/8.11/transforms/7c47c24bccbb93f4b21654370dbff5ea/transformed/ideaIC-LATEST-EAP-SNAPSHOT/plugins/java" type="directory" conf="default"/>
+  </publications>
+  <dependencies>
+    <dependency org="bundledPlugin" name="com.intellij.copyright" rev="253.25908.13+490"/>
+    <dependency org="bundledPlugin" name="com.intellij.platform.images" rev="253.25908.13+333"/>
+    <dependency org="bundledPlugin" name="com.jetbrains.performancePlugin" rev="253.25908.13+341"/>
+    <dependency org="bundledPlugin" name="org.jetbrains.plugins.terminal" rev="253.25908.13+769"/>
+    <dependency org="bundledModule" name="intellij.platform.vcs.impl.lang" rev="253.25908.13+25"/>
+    <dependency org="bundledModule" name="intellij.spellchecker" rev="253.25908.13+25"/>
+    <dependency org="bundledModule" name="intellij.xml.dom.impl" rev="253.25908.13+25"/>
+    <dependency org="bundledModule" name="intellij.regexp" rev="253.25908.13+25"/>
+    <dependency org="bundledModule" name="intellij.platform.frontend" rev="253.25908.13+25"/>
+    <dependency org="bundledModule" name="intellij.platform.debugger.impl.frontend" rev="253.25908.13+25"/>
+    <dependency org="bundledModule" name="intellij.platform.kernel.backend" rev="253.25908.13+25"/>
+  </dependencies>
+</ivy-module>
