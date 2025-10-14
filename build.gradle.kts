@@ -2,7 +2,7 @@ import org.jetbrains.intellij.platform.gradle.IntelliJPlatformType
 
 plugins {
     id("java")
-    id("org.jetbrains.kotlin.jvm") version "1.8.10"
+    id("org.jetbrains.kotlin.jvm") version "2.1.10"
     id("org.jetbrains.intellij.platform") version "2.1.0"
 }
 
@@ -27,6 +27,7 @@ dependencies {
 
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellijPlatform {
+    buildSearchableOptions = false
     pluginConfiguration {
         id = "com.marketplace.makeMeCoffee"
         name = "MakeMeCoffee"
